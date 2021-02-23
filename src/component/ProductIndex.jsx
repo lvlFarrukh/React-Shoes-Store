@@ -42,7 +42,6 @@ const ProductIndex = (props) => {
     const classes1 = useStylesTypo();
     const classes2 = useStylesGrid();
     const { state } = useContext(GlobalState);
-    console.log(state)
     const [productCat, setProductCat] = useState("formal")
 
     const setCatagory = cat=> {
