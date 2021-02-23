@@ -41,7 +41,8 @@ const useStylesGrid = makeStyles((theme) => ({
 const ProductIndex = (props) => {
     const classes1 = useStylesTypo();
     const classes2 = useStylesGrid();
-    const shoesDate = useContext(GlobalState);
+    const { state } = useContext(GlobalState);
+    console.log(state)
     const [productCat, setProductCat] = useState("formal")
 
     const setCatagory = cat=> {
@@ -49,7 +50,7 @@ const ProductIndex = (props) => {
         cat && setProductCat(catagory)
     }
 
-    // console.log(shoesDate[productCat])
+    // console.log(state[productCat])
     return (
         <div>
             <div className={classes2.root}>
@@ -77,7 +78,7 @@ const ProductIndex = (props) => {
                     </Grid>
 
                     
-                    {shoesDate[productCat].map((v,i)=> {
+                    {state[productCat].map((v,i)=> {
                         return <Grid key={i} item xs={4} style={{margin: "20px 0px"}}>
                                     <ShoeCard shoeData={v}/>
                                 </Grid>

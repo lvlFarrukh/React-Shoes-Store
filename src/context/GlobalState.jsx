@@ -31,8 +31,15 @@
  export const GlobalProvider = ({ children })=> {
     const [state, dispatch] = useReducer(AppReducer, initialState)
 
+    const getShoes = () =>{
+            dispatch({
+                type: 'GET_SHOES',
+                payload: ''
+            })
+    }
+
      return (
-        <GlobalState.Provider value={state} >
+        <GlobalState.Provider value={{state, getShoes}} >
             {children}
         </GlobalState.Provider>
      )

@@ -53,7 +53,7 @@ const ProductDetail = () => {
     const classes = useStylesGrid();
     const classes1 = useStylesCard();
 
-    const shoesData = useContext(GlobalState);
+    const { state } = useContext(GlobalState);
     // console.log(shoesData)
 
     const {productId} = useParams();
@@ -63,16 +63,15 @@ const ProductDetail = () => {
     const [Relatedproduct, setRelatedProduct] = useState()
 
     useEffect(()=> {
-      setProduct(shoesData[pCatagory][pId]);
-      let rProd = shoesData[pCatagory].filter((v)=>{
+      setProduct(state[pCatagory][pId]);
+      let rProd = state[pCatagory].filter((v)=>{
         return parseInt(v.id) !== pId
       })
 
       setRelatedProduct(rProd)
 
-    }, [pCatagory, pId, shoesData]);
+    }, [pCatagory, pId, state]);
 
-    product && console.log(product)
 
     return (
         <div className={classes.root}>
